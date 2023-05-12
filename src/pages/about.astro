@@ -1,0 +1,30 @@
+---
+import PageLayout from "@/layouts/Base";
+import SocialList from "@/components/SocialList";
+
+const meta = {
+    title: "About",
+    description: "I'm a starter theme for Astro.build",
+};
+---
+
+<PageLayout meta={meta}>
+    <div class="space-y-6">
+        <h1 class="title">About</h1>
+        <p>
+            I am Mofeoluwa Lijadu, a backend developer by profession,
+            proficient in Python and TypeScript. Although my skill set is diverse, these days, I find
+            myself primarily engrossed in TypeScript. Additionally, I relish my leisure time as a meme
+            connoisseur by choice.
+        </p>
+        <p>Here are my some of interests:</p>
+        <ul class="list-inside list-disc">
+            <li>👾 Tech: Design Principles, System Design, Golang</li>
+            <li>📘 Continuous Learning: Currently diving into the world of Go</li>
+            <li>📺 Anime: From classics to the latest series, I'm a true enthusiast</li>
+            <li>⚽🏀 Sports: An ardent supporter of FC Barcelona & Golden State Warriors</li>
+        </ul>
+        <SocialList />
+    </div>
+</PageLayout>
+
