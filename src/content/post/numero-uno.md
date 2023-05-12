@@ -19,6 +19,3 @@ The same way there's ROI (return on investment), there's such thing as ROF (retu
 ## Post
 
 This is rather spontaneous but I just felt like writing lmao
-
-<script src="https://gist.github.com/ScMofeoluwa/31c559806722ab148bde355de74798e6.js"></script>
-

@@ -4,10 +4,13 @@ import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
 import prefetch from "@astrojs/prefetch";
+import vercelStatic from "@astrojs/vercel/static";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://www.astro-theme-cactus.netlify.app/",
+	site: "https://mofeoluwa.wtf/",
+	output: "server",
+	adapter: vercelStatic(),
 	markdown: {
 		shikiConfig: {
 			theme: "one-dark-pro",
