@@ -10,7 +10,7 @@ import vercelStatic from "@astrojs/vercel/static";
 export default defineConfig({
 	site: "https://mofeoluwa.wtf/",
 	output: "static",
-	adapter: vercelStatic(),
+	adapter: vercelStatic({ analytics: true, imageService: true }),
 	markdown: {
 		shikiConfig: {
 			theme: "one-dark-pro",
