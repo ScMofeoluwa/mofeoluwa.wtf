@@ -9,7 +9,7 @@ import vercelStatic from "@astrojs/vercel/static";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://mofeoluwa.wtf/",
-	output: "server",
+	output: "static",
 	adapter: vercelStatic(),
 	markdown: {
 		shikiConfig: {
