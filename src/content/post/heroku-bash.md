@@ -30,7 +30,6 @@ Now, let's take a closer look at the steps involved in automating your Heroku de
 The first thing we need to do is check if the Heroku CLI (Command Line Interface) is installed on your system.
 The CLI allows us to interact with Heroku from the command line. We can use the `which command` to verify if the Heroku CLI is installed:
 
-
 ```bash
 which heroku >/dev/null
 if [ $? -ne 0 ]; then
@@ -38,6 +37,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 ```
+
 If the Heroku CLI is not installed, the script will display an error message and exit.
 
 ### Step 2: Checking Heroku Login
@@ -52,6 +52,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 ```
+
 If the user is not logged in, the script will prompt them to log in and exit.
 
 ### Step 3: Switching to the Master Branch
@@ -79,6 +80,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 ```
+
 These commands ensure that we are on the deploy branch for our Heroku deployment.
 
 ### Step 5: Merging from the Master Branch
@@ -93,9 +95,11 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 ```
+
 If the merge fails, the script will display an error message and exit.
 
 ### Step 6: Checking for Merge Conflicts
+
 After the merge, we need to check if there are any merge conflicts.
 We can accomplish this by using the `git ls-files -u` command, which lists all the unmerged files,
 and then counting the number of lines with conflict issues using `wc -l`:
@@ -107,9 +111,11 @@ if [ "$CONFLICTS" -gt 0 ]; then
     exit 1
 fi
 ```
+
 If there are any merge conflicts, the script will notify you to resolve them manually and exit.
 
 ### Step 7: Deploying to Heroku
+
 Assuming there are no merge conflicts, we can proceed with deploying our project to Heroku.
 This can be achieved using the `git push` command:
 
@@ -120,20 +126,22 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 ```
+
 If the push to Heroku fails, the script will display an error message and exit.
 
 ### Step 8: Switching Back to the Master Branch
+
 Once the deployment is complete, we want to switch back to the master branch.
 We can do this using the `git checkout` command:
 
 ```bash
 git checkout master
 ```
+
 If the switch back to the master branch fails, the script will display an error message and exit.
 
-
-
 ### Side Notes
+
 In addition to the script itself, there are a few important notes worth considering:
 
 1. **Data Streams in Unix**: Unix systems have three data streams: stdin, stdout, and stderr.
@@ -144,7 +152,6 @@ In addition to the script itself, there are a few important notes worth consider
 2. **Checking the Exit Status**: The script utilizes the `$?` variable to hold the exit status or status code of the previous command.
    A status code of 0 indicates success, while a non-zero value indicates an error. The script checks if the exit status is not equal to zero using the `-ne` operator.
 
-
 ## Conclusion
-The final script can be found here: [Script 0]() and a less verbose one here: [Script 1]()
 
+The final script can be found here: [Script 0]() and a less verbose one here: [Script 1]()

@@ -7,11 +7,11 @@ import { siteConfig } from "@/site-config";
 import { getFormattedDate } from "@/utils";
 
 const monoFontReg = await fetch(
-	"https://api.fontsource.org/v1/fonts/roboto-mono/latin-400-normal.ttf"
+	"https://res.cloudinary.com/dsdteabp4/raw/upload/v1684787969/RobotoMono-Regular_yhdqcn.ttf"
 );
 
 const monoFontBold = await fetch(
-	"https://api.fontsource.org/v1/fonts/roboto-mono/latin-700-normal.ttf"
+	"https://res.cloudinary.com/dsdteabp4/raw/upload/v1684787969/RobotoMono-Bold_u5mic8.ttf"
 );
 
 const ogOptions: SatoriOptions = {
