@@ -30,7 +30,7 @@ Now, let's take a closer look at the steps involved in automating your Heroku de
 The first thing we need to do is check if the Heroku CLI (Command Line Interface) is installed on your system.
 The CLI allows us to interact with Heroku from the command line. We can use the `which command` to verify if the Heroku CLI is installed:
 
-```bash
+```sh
 which heroku >/dev/null
 if [ $? -ne 0 ]; then
     echo "Heroku CLI is not installed. Please install it first."
@@ -45,7 +45,7 @@ If the Heroku CLI is not installed, the script will display an error message and
 Next, we want to ensure that the user is logged in to Heroku.
 This can be done by checking the output of the `heroku whoami` command:
 
-```bash
+```sh
 heroku whoami >/dev/null
 if [ $? -ne 0 ]; then
     echo "Not logged in to Heroku. Please log in."
@@ -60,7 +60,7 @@ If the user is not logged in, the script will prompt them to log in and exit.
 To avoid any potential issues, we want to make sure that we are on the master branch of our repository.
 We can use the `git checkout` command to switch to the master branch:
 
-```bash
+```sh
 git checkout master
 ```
 
@@ -69,7 +69,7 @@ git checkout master
 Now, we need to check if the deploy branch exists.
 If it doesn't, we will create it using the `git checkout -b` command:
 
-```bash
+```sh
 git rev-parse --verify deploy >/dev/null 2>&1
 if [ $? -ne 0 ]; then
     git checkout -b deploy
@@ -88,7 +88,7 @@ These commands ensure that we are on the deploy branch for our Heroku deployment
 Before deploying to Heroku, we want to merge any changes from the master branch to the deploy branch.
 This can be done using the `git merge` command:
 
-```bash
+```sh
 git merge master
 if [ $? -ne 0 ]; then
     echo "Failed to merge from 'master'. Please check your repository."
@@ -104,7 +104,7 @@ After the merge, we need to check if there are any merge conflicts.
 We can accomplish this by using the `git ls-files -u` command, which lists all the unmerged files,
 and then counting the number of lines with conflict issues using `wc -l`:
 
-```bash
+```sh
 CONFLICTS=$(git ls-files -u | wc -l)
 if [ "$CONFLICTS" -gt 0 ]; then
     echo "There are merge conflicts. Please resolve them manually."
@@ -119,7 +119,7 @@ If there are any merge conflicts, the script will notify you to resolve them man
 Assuming there are no merge conflicts, we can proceed with deploying our project to Heroku.
 This can be achieved using the `git push` command:
 
-```bash
+```sh
 git push heroku deploy:master
 if [ $? -ne 0 ]; then
     echo "Failed to push to Heroku. Please check your Heroku settings."
@@ -134,7 +134,7 @@ If the push to Heroku fails, the script will display an error message and exit.
 Once the deployment is complete, we want to switch back to the master branch.
 We can do this using the `git checkout` command:
 
-```bash
+```sh
 git checkout master
 ```
 
@@ -154,4 +154,4 @@ In addition to the script itself, there are a few important notes worth consider
 
 ## Conclusion
 
-The final script can be found here: [Script 0]() and a less verbose one here: [Script 1]()
+The final script can be found here: [Script 0](https://gist.github.com/ScMofeoluwa/01b736484b4c9cf1ad76ab8eb057d625) and a less verbose one here: [Script 1](https://gist.github.com/ScMofeoluwa/66c3019db70c8fdb6cee2b9c94e628ac)
