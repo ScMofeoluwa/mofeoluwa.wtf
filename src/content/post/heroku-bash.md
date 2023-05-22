@@ -1,9 +1,11 @@
 ---
-title: "Heroku-Bash"
-description: "Automating Heroku Deployment with Bash Scripts"
+title: "Automating Heroku Deployment with Bash Scripts"
+description: "This article explores the use of Bash Scripts to automate Heroku deployments, simplifying the deployment process for developers"
 publishDate: "22 May 2023"
 tags: ["bash", "heroku"]
 ---
+
+## What led me here?
 
 At times, deploying to Heroku can be a tedious and error-prone process.
 Manually typing commands and overlooking branch switching can lead to unnecessary hassle and mistakes.
