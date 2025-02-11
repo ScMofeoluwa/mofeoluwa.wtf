@@ -1,2 +1,5 @@
-/// <reference path="../.astro/types.d.ts" />
-/// <reference types="@astrojs/image/client" />
+declare module "@pagefind/default-ui" {
+	declare class PagefindUI {
+		constructor(arg: unknown);
+	}
+}

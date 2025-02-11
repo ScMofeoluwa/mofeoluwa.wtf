@@ -5,7 +5,8 @@ publishDate: "29 Mar 2024"
 tags: ["golang"]
 ---
 
-Coughs\*, I first learned about error groups about a week ago during an episode of the Go Time podcast [series](https://open.spotify.com/episode/5rx0SSiRSgu6YNF5IS9F7n?si=dd5e0379453d49e9).
+## Let's Go
+Coughs\*, I first learned about error groups about a week ago during an episode of the Go Time[^1].
 It's been a while since I've written, so I thought I'd share my thoughts on error groups and wait groups, and why I believe error groups are the better choice for my future projects.
 Please note that, as of now, error groups are not part of the standard Go library but are included in the Go X subdirectories.
 You can install it by running `go get golang.org/x/sync/errgroup`.
@@ -98,3 +99,5 @@ My key takeaways:
 
 - Error groups are particularly useful for tasks of the same nature. For tasks that vary, you can still use error groups with channels to capture individual errors.
 - They also help with context cancelation using the `WithContext()` method
+
+[^1]: [Go Time Podcast Episode](https://open.spotify.com/episode/5rx0SSiRSgu6YNF5IS9F7n?si=dd5e0379453d49e9)

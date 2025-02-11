@@ -1,23 +1,16 @@
 ---
-import PageLayout from "@/layouts/Base";
-import { Image } from "@astrojs/image/components";
-import aboutImg from "../assets/about.png";
+import { Image } from "astro:assets";
+import errorImg from "@/assets/error.png";
+import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	title: "Oops! You found a missing page!",
 	description: "Oops! It looks like this page is lost in space!",
+	title: "Oops! You found a missing page!",
 };
 ---
 
 <PageLayout meta={meta}>
-	<div class="my-4 grid justify-center">
-		<h1 class="title mb-6">404 | Oops something went wrong</h1>
-		<p class="mb-8">Please use the navigation to find your way back</p>
-		<Image
-			class="rotate-360"
-			src={aboutImg}
-			alt="A cartoon cactus looking at the 'Astro.build' logo"
-			loading="eager"
-		/>
-	</div>
+	<h1 class="title mb-6">404 | Oops something went wrong</h1>
+	<p class="mb-8">Please use the navigation to find your way back</p>
+	<Image class="rotate-360" src={errorImg} alt="A sad pepe meme" loading="eager" />
 </PageLayout>

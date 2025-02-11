@@ -1,9 +1,9 @@
+import { getAllPosts } from "@/data/post";
+import { siteConfig } from "@/site.config";
 import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
-import { siteConfig } from "@/site-config";
 
-export const get = async () => {
-	const posts = await getCollection("post");
+export const GET = async () => {
+	const posts = await getAllPosts();
 
 	return rss({
 		title: siteConfig.title,
@@ -13,7 +13,7 @@ export const get = async () => {
 			title: post.data.title,
 			description: post.data.description,
 			pubDate: post.data.publishDate,
-			link: `posts/${post.slug}`,
+			link: `posts/${post.id}/`,
 		})),
 	});
 };
