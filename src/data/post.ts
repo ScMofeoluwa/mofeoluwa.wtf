@@ -3,7 +3,9 @@ import { type CollectionEntry, getCollection } from "astro:content";
 /** filter out draft posts based on the environment */
 export async function getAllPosts(): Promise<CollectionEntry<"post">[]> {
 	return await getCollection("post", ({ data }) => {
-		return import.meta.env.PROD ? !data.draft : true;
+		// Show drafts in dev or on Cloudflare preview deployments (non-main branches)
+		const isPreview = import.meta.env.CF_PAGES_BRANCH && import.meta.env.CF_PAGES_BRANCH !== "main";
+		return import.meta.env.PROD && !isPreview ? !data.draft : true;
 	});
 }
 
